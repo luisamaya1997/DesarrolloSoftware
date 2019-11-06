@@ -1,0 +1,111 @@
+ private void txtRTN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(char.IsNumber(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if(char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private Boolean email_bien_escrito(String email)
+{
+   String expresion;
+   expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+   if (Regex.IsMatch(email,expresion))
+   {
+      if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+      {
+         return true;
+      }
+      else
+      {
+         return false;
+      }
+   }
+   else
+   {
+      return false;
+   }
+}
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+
+                e.Handled = true;
+                return;
+            }
+        }
+
+
+
+   private void txtTel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+
+
+
+
+/*buscar en eventos el evento leave*/
+
+ private void txtCorreo_Leave(object sender, EventArgs e)
+        {
+            if(email_bien_escrito(txtCorreo.Text))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Direccion de correo electronico no valida el correo debe tener el formato: nombre@dominio.com","Validacion de correo");
+                txtCorreo.SelectAll();
+                txtCorreo.Focus();
+            }
+        }

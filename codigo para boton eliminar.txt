@@ -1,0 +1,23 @@
+
+            Cliente ce = new Cliente();
+            DialogResult res;
+            res = MessageBox.Show("¿Desea eliminar este registro","ADVERTENCIA",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            if(res==DialogResult.Yes)
+            {
+                ce.EliminarCliente(int.Parse(txtRTN.Text));
+                dgvClientes.DataSource = null;
+                LimpiarFormulario();
+                btnAgregar.Enabled = true;
+                btnMenu.Enabled = true;
+                btnEliminar.Enabled = false;
+                btnModificar.Enabled = false;
+            }
+            if(res==DialogResult.No)
+            {
+                btnEliminar.Enabled = false;
+                btnModificar.Enabled = true;
+             
+                btnAgregar.Enabled = true;
+                btnMenu.Enabled = true;
+                
+            }
