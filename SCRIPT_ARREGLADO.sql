@@ -34,7 +34,7 @@ Descripcion nvarchar(50) not null,
 go
 create table Proveedores(
 [Codigo Proveedor] int identity(1,1) primary key,
-Proveedor nvarchar(80) ,
+Proveedor nvarchar(80) not null,
 Telefono char(12) not null,
 Direccion varchar(150) not null,
 Correo varchar(80)
@@ -80,15 +80,15 @@ Existencia bigint not null,
 go
 create table Clientes(
 [Codigo Cliente] int identity(1,1) primary key,
-RTN varchar(14),
-Nombre nvarchar(80),
-Apellido nvarchar(80),
+RTN varchar(14) null,
+Nombre nvarchar(80) not null,
+Apellido nvarchar(80) not null,
 Sexo char(1),
 Telefono char(12),
 Direccion varchar(150),
 Correo varchar(80),
 [Tipo Cliente] varchar(9) not null,
-Identidad nvarchar(13) 
+Identidad nvarchar(13) not null 
 )
 go
 create table Empleados(
